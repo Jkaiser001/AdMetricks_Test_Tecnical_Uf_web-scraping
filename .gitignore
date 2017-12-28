@@ -91,6 +91,11 @@ ENV/
 .spyderproject
 .spyproject
 
+#pycharm
+.idea
+#base de datos
+db.sqlite3
+
 # Rope project settings
 .ropeproject
 
