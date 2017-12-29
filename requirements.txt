@@ -1,5 +1,10 @@
 BeautifulSoup==3.2.1
+certifi==2017.11.5
+chardet==3.0.4
 Django==1.11
 djangorestframework==3.7.7
+idna==2.6
 pytz==2017.3
 request==0.0.22
+requests==2.18.4
+urllib3==1.22
