@@ -2,11 +2,12 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils import timezone
 from datetime import date
 # Create your models here.
 
-
+9
 class Money( models.Model ):
 
-	value = models.integerField(null=False, max_length=10)
-	date = models.DateField(default=date.today())
+	value = models.IntegerField(null=False)
+	date = models.DateField(default=timezone.now())
