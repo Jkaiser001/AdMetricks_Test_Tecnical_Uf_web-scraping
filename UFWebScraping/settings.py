@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+'''
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
@@ -92,6 +92,35 @@ CACHES = {
         'TIMEOUT': 1800,
     }
 }
+'''
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'standard': {
+           'format': '%(asctime)s [%(levelname)s] %(message)s',
+        },
+    },
+    'handlers': {
+        'central_bank_log': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'log/centralBank.log',
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        'central_bank': {
+            'handlers': ['central_bank_log'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+
+
+    },
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
