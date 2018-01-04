@@ -85,6 +85,13 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': 1800,
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -118,7 +125,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-URL_CENTRAL_BANK = "https://si3.bcentral.cl/Indicadoressiete/secure/Indicadoresdiarios.aspx"
+URL_CENTRAL_BANK = "https://si3.bcentral.cl/Indicadoressiete/secure"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
