@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from rest_framework.decorators import api_view
-from rest_framework import status
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework import status, schemas
+from rest_framework.renderers import BrowsableAPIRenderer,JSONRenderer
 from rest_framework.response import Response
 from ConnectorCentralBank import ConnectorCentralBank
 
@@ -10,7 +11,6 @@ from models import Money
 from serializers import MoneySerializer
 from uf_Scraping.util import update_last_uf_central_bank, get_all_uf_central_bank
 import logging
-
 
 logger = logging.getLogger("central_bank")
 
@@ -21,6 +21,9 @@ logger = logging.getLogger("central_bank")
 #######################################################################
 @api_view(["GET"])
 def list_uf_view(request):
+	"""
+	    List historical of values in central bank web page
+	"""
 
 	moneys = Money.objects.all().order_by("date")
 	list_moneys_output=[]
@@ -61,6 +64,13 @@ def list_uf_view(request):
 #######################################################################
 @api_view(["GET"])
 def price_uf_view(request):
+	"""
+	Converting a value in UF to CLP on a specific date
+	params:
+			value: Its value you want convert to [CLP]
+			date:  Its date when you want convert
+	"""
+
 	# Validate query string values
 	if ("value" not in request.GET) or ("date" not in request.GET):
 		return Response({"status": "error"}, status=status.HTTP_400_BAD_REQUEST)
@@ -69,8 +79,10 @@ def price_uf_view(request):
 		value = float(request.GET["value"])
 	except ValueError:
 		return Response({"error": "Invalid value: {0}".format(request.GET["value"])}, status=status.HTTP_400_BAD_REQUEST)
-
-	date_request = datetime.strptime(request.GET["date"], "%Y%m%d")
+	try:
+		date_request = datetime.strptime(request.GET["date"], "%Y%m%d")
+	except:
+		return Response({"error": "Invalid date: {0}".format(request.GET["date"])}, status=status.HTTP_400_BAD_REQUEST)
 	# Verify if not empty database table
 	moneys = Money.objects.all().order_by("date")
 	if len(moneys) > 0:
