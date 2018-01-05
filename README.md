@@ -1,4 +1,4 @@
-# AdMetricks Test Technical Uf web-scraping
+# AdMetricks Test Technical UF web-scraping
 This project was developed with the purpose of demonstrating the technical knowledge acquired during my work experience. To this end, I have developed a API REST in [DRF](), which allows to obtain the value of the daily UF, through the use of scraping techniques from the website of the [central bank]()
 
 ##Getting Started
