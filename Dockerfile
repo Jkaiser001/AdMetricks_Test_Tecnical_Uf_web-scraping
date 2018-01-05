@@ -1,6 +1,6 @@
 FROM python:2.7-jessie
 
-RUN mkdir -p /app/log
+RUN mkdir -p /app/logs
 
 # Set the working directory to /app
 WORKDIR /app

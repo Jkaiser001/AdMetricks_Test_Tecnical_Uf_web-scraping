@@ -107,7 +107,7 @@ LOGGING = {
         'central_bank_log': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'log/centralBank.log',
+            'filename': 'logs/centralBank.log',
             'formatter': 'standard',
         },
     },
