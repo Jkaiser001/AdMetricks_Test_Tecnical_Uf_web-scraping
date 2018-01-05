@@ -47,22 +47,11 @@ Now, you need install requirements of project by using pip.
 ```
 $ pip install -r requirements.txt
 ```
+### Docker Instructions
 
-##Getting Started
-
-For start de project you need activate the virtualenv and execute manage with runserver.
-
-```
-$ source env/bin/activate
-$ python manage.py runserver
-```
-
-Then, on your local machine, the server will be available at url http://127.0.0.1:8000/, where you can see a documentation simple in [Swagger](https://swagger.io/).
-
-###Docker Instructions
 Ensure Docker is installed on your system
 
-First, you need
+First, you get opy of project using Git:
 ```
 $ git clone https://github.com/Jkaiser001/AdMetricks_Test_Technical_Uf_web-scraping.git Admetricks_test_technical
 $ cd Admetricks_test_technical
@@ -77,6 +66,17 @@ $ sh run.sh
 The initial run may take several minutes to build. Once complete, the application will be available at http://localhost:8080
 
 
+## Getting Started
+
+For start de project you need activate the virtualenv and execute manage with runserver.
+
+
+```
+$ source env/bin/activate
+$ python manage.py runserver
+```
+
+Then, on your local machine, the server will be available at url http://127.0.0.1:8000/, where you can see a documentation simple in [Swagger](https://swagger.io/).
 
 
 ## Deployment
