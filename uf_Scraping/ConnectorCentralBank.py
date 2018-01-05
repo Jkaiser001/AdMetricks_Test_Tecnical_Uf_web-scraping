@@ -96,6 +96,7 @@ class ConnectorCentralBank(object):
 	##  OUTPUT: List historical of values in central bank web page       ##
 	#######################################################################
 	def get_all_uf(self):
+		dryscrape.start_xvfb()
 		session = dryscrape.Session()
 		self.logger.info("SEARCH ALL UFs VALUES CENTRAL BANK")
 		list_money = []
@@ -139,6 +140,7 @@ class ConnectorCentralBank(object):
 	##  OUTPUT: List value to update database                            ##
 	#######################################################################
 	def get_last_uf(self, last_date):
+		dryscrape.start_xvfb()
 		session = dryscrape.Session()
 		self.logger.info("SEARCH LAST UFs VALUES CENTRAL BANK")
 		list_money = []
