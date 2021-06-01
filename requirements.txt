@@ -18,6 +18,6 @@ request==0.0.22
 requests==2.20.0
 simplejson==3.13.2
 uritemplate==3.0.0
-urllib3==1.24.2
+urllib3==1.26.5
 webkit-server==1.0
 xvfbwrapper==0.2.9
